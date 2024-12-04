@@ -1,0 +1,9 @@
+en-ZA:
+  number:
+    currency:
+      format:
+        format: "R %n"
+        unit: "R"
+        separator: "."
+        delimiter: ","
+        precision: 2

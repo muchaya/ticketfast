@@ -1,0 +1,15 @@
+<div class="w-3/4 mx-auto">
+  <% @tickets.each do |ticket| %>
+    <%= link_to ticket_path(ticket) do %>
+      <div class="border-b border-gray-300 py-4 flex items-center justify-between pr-1">
+        <div>
+          <h2 class="font-bold text-lg"><%= ticket.title %></h2>
+          <p class="text-zinc-400 text-sm">Reserved seating</p>
+        </div>
+        <div class="">
+          <p class="font-bold text-blue-500 text-xl"> <%= number_to_currency(ticket.price, locale: :"en-ZA") %></p>
+        </div>
+      </div>
+    <% end %>  
+  <% end %>
+</div>
