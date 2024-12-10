@@ -21,11 +21,13 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+  
+    <script src="https://sandbox.payfast.co.za/onsite/engine.js"></script>
   </head>
 
   <body class="mx-auto ">
     <nav class="mb-12 bg-blue-600 py-3 px-6 flex items-center justify-between">
-      <%= link_to "Ticketfaster", root_path, class: "text-white font-extrabold text-2xl mb-3 block" %>
+      <%= link_to "Ticketfast", root_path, class: "text-white font-extrabold text-2xl mb-3 block" %>
 
       <%= link_to cart_path(Current.cart)  do %>
         <div class="bg-white rounded-full py-3 px-6">

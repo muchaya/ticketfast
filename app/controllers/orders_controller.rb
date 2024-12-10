@@ -4,17 +4,14 @@ class OrdersController < ApplicationController
   end
 
   def create
- 
-
     @order = Order.new(order_params.except(:amount, :item_name))
 
     if @order.save
-
       build_line_items
-      process_payment
+      pay
       clear_cart
       
-      render json: { uuid: payment.uuid }
+      render json: { uuid: pay['uuid'], status: :ok }
     else
       render :new, alert: 'Could not create order. Please try again.'
     end
@@ -23,16 +20,26 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:firstname, :surname, :email, :amount, :item_name)
+    params.require(:order).permit(:first_name, :last_name, :email, :amount, :item_name)
   end
 
-  def process_payment
-    payment = Payfast::Payment.create(amount: @cart.sub_total, email: 'btmuchaya@gmail.com', item_name: 'Parvakit merchandise')
+  def pay
+    payment = Payfast::Payment.create({
+      merchant_id: Payfast.merchant_id,
+      merchant_key: Payfast.merchant_key,
+      amount: sprintf('%.2f', Current.cart.subtotal), 
+      email: params[:email],
+      first_name: params[:first_name],
+      last_name: params[:last_name], 
+      item_name: 'Tickets'
+    })
 
-    unless payment.success?
-      flash[:alert] = 'Payment failed. Please try again.'
-      redirect_to :new and return
-    end
+    #unless payment.success?
+    #  flash[:alert] = 'Payment failed. Please try again.'
+    #  redirect_to :new and return
+    #end
+
+    payment
   end
 
   def build_line_items

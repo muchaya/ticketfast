@@ -1,24 +1,23 @@
 <div class="w-4/5 mx-auto">
-  <%= form_with model: Order.new, url: orders_path, class: 'flex gap-x-16' do |form| %>
-    
+  <%= form_with model: Order.new, url: orders_path, data: { controller: :payfast }, class: 'flex gap-x-16' do |form| %>
 
     <div class="w-1/2">
       <h2 class="font-bold text-2xl text-slate-700 mb-8">Enter Details</h2>
-      <%= form.hidden_field :amount, value: number_with_precision(Current.cart.subtotal, precision: 2) %>
+      <%= form.hidden_field :amount, value: number_with_precision(Current.cart.subtotal, precision: 2), data: { payfast_target: "amount" } %>
       
       <div class="mb-4">
         <%= form.label :firstname, class: "text-sm text-slate-600 font-medium" %>
-        <%= form.text_field :firstname, class: "block border border-slate-700 rounded-md py-3 w-full" %>
+        <%= form.text_field :firstname, class: "block border border-slate-700 rounded-md py-3 w-full", data: { payfast_target: "firstName" }  %>
       </div>
       
       <div class="mb-4">
-        <%= form.label :surname, class: "text-sm text-slate-600 font-medium" %>
-        <%= form.text_field :surname, class: "block border border-slate-700 rounded-md py-3 mb-4 w-full" %>
+        <%= form.label :lastname, class: "text-sm text-slate-600 font-medium" %>
+        <%= form.text_field :lastname, class: "block border border-slate-700 rounded-md py-3 mb-4 w-full", data: { payfast_target: "lastName" }  %>
       </div>  
 
       <div class="mb-4">
         <%= form.label :email, class: "text-sm text-slate-600 font-medium" %>
-        <%= form.text_field :email, class: "block border border-slate-700 rounded-md py-3 mb-4 w-full" %>
+        <%= form.text_field :email, class: "block border border-slate-700 rounded-md py-3 mb-4 w-full", data: { payfast_target: "email" } %>
       </div>       
     </div>
 
@@ -35,8 +34,7 @@
         <h2 class="font-medium text-2xl text-slate-700 mb-8 border-b border-gray-300 pb-3 "><%= Current.cart.total_quantity %> tickets</h2>
       </div>
       
-      <%= form.submit "Pay", class: "mt-3 bg-green-500 py-3 w-full rounded-md text-white font-bold cursor-pointer w-full" %>
+      <%= form.submit "Pay", class: "mt-3 bg-green-500 py-3 w-full rounded-md text-white font-bold cursor-pointer w-full", data: { action: 'payfast#initiatePayment'} %>
     </div>  
-    
   <% end %>
 </div>
