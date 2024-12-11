@@ -1,24 +1,35 @@
-# README
+# TicketFast
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### This demo application demonstrates how to integrate South Africa's PayFast payment gateway into a Ruby on Rails application using the PayFast Ruby library.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+Ensure you have the following installed:
 
-* System dependencies
+- **Ruby 2.7.0**
+- **Bundler 2.1.4**
 
-* Configuration
+## Getting Started
 
-* Database creation
+Follow these steps to set up and run the demo application:
 
-* Database initialization
+### 1. Clone the Repository:
 
-* How to run the test suite
+    git clone https://github.com/muchaya/ticketfast.git
+    cd ticketfast/
 
-* Services (job queues, cache servers, search engines, etc.)
+### 2. Install dependencies: 
+    bundle add tailwindcss-rails
+    bundle
+    rails tailwindcss:install
+  
+### 3. Confifure payfast credentials: 
+    Edit config/initializers/payfast.yml to set the credentials applicable to your Payfast account
 
-* Deployment instructions
+### 4. Setup the database:
+    rails db:create
+    rails db:setup
 
-* ...
+### 5. Start the application
+    bin/dev
+ 
