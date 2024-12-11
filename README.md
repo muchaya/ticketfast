@@ -1,6 +1,6 @@
 # TicketFast
 
-#### This demo application demonstrates how to integrate South Africa's PayFast payment gateway into a Ruby on Rails application using the PayFast Ruby library.
+This demo application demonstrates how to the [payfast_za]() gem in a Rails application using the PayFast Ruby library.
 
 ## Prerequisites
 
