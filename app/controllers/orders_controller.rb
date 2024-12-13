@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    payment = Payfast::Payment.create({
+    payment = Payfast::Payment.create(
       merchant_id: Payfast.merchant_id,
       merchant_key: Payfast.merchant_key,
       amount: sprintf('%.2f', Current.cart.subtotal), 
@@ -32,12 +32,12 @@ class OrdersController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name], 
       item_name: 'Tickets'
-    })
+    )
 
-    #unless payment.success?
-    #  flash[:alert] = 'Payment failed. Please try again.'
-    #  redirect_to :new and return
-    #end
+    unless payment.success?
+      flash[:alert] = 'Payment failed. Please try again.'
+      redirect_to :new and return
+    end
 
     payment
   end
