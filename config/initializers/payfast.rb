@@ -15,7 +15,7 @@ Payfast.setup do |config|
   # ==> Configure Payfast Urls
   config.return_url = Rails.application.credentials.payfast[:return_url]
   config.cancel_url = Rails.application.credentials.payfast[:cancel_url]
-  config.notify_url = Rails.application.credentials.payfast[:notify_url]
+  #config.notify_url = Rails.application.credentials.payfast[:notify_url]
 
   # ==> Configure Payfast transaction emails  
   #config.email_confirmation = Rails.application.credentials.payfast[:email_confirmation]

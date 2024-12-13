@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
       pay
       clear_cart
       
-      render json: { uuid: pay['uuid'], status: :ok }
+      render json: { uuid: pay['uuid'], return_url: pay[:return_url], cancel_url: pay[:cancel_url], status: :ok }
     else
       render :new, alert: 'Could not create order. Please try again.'
     end
@@ -34,10 +34,10 @@ class OrdersController < ApplicationController
       item_name: 'Tickets'
     )
 
-    unless payment.success?
-      flash[:alert] = 'Payment failed. Please try again.'
-      redirect_to :new and return
-    end
+    #unless payment.success?
+    #  flash[:alert] = 'Payment failed. Please try again.'
+    #  redirect_to :new and return
+    #end
 
     payment
   end

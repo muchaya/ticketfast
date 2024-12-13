@@ -27,12 +27,15 @@ export default class extends Controller {
       if (request.ok) {
         const response = await request.json;
         const uuid = response.uuid;
+        const returnUrl = response.return_url;
+        const cancelUrl = response.cancel_url;
 
         if (uuid) {
-          console.log("Payment UUID:", uuid);
-
-          // Trigger the Payfast modal with the returned UUID
-          window.payfast_do_onsite_payment({uuid});
+          window.payfast_do_onsite_payment({
+            "uuid": uuid, 
+            "return_url": returnUrl,
+            "cancel_url": cancelUrl
+          })
         } else {
           console.error("UUID not found in the response");
         }
