@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/muchaya/payfast_za.git
-  revision: bf4f0350ee596fbfa6c3ce853431bf2c6decc7c0
+  revision: 537266f033412932e2cd0a5b1d72c79774acfd90
   specs:
     payfast_za (0.0.0)
 
