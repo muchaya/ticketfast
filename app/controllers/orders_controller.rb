@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     payment = Payfast::Payment.create(
       merchant_id: Payfast.merchant_id,
       merchant_key: Payfast.merchant_key,
-      amount: sprintf('%.2f', Current.cart.subtotal), 
+      amount: Current.cart.subtotal, 
       email: params[:email],
       first_name: params[:first_name],
       last_name: params[:last_name], 
