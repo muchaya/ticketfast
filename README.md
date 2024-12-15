@@ -18,14 +18,15 @@ Follow these steps to set up and run the demo application:
     git clone https://github.com/muchaya/ticketfast.git
     cd ticketfast/
 
-### 2. Install dependencies: 
-    - Add the `requestjs-rails` gem to your Gemfile: `gem 'requestjs-rails'`
-    - Add the `tailwindcss` gem to your Gemfile: `gem 'tailwindcss-rails'`
+### 2. Install dependencies:
 
-    - Run `./bin/bundle install`
+- Add the `requestjs-rails` gem to your Gemfile: `gem 'requestjs-rails'`
+- Add the `tailwindcss` gem to your Gemfile: `gem 'tailwindcss-rails'`
 
-    - Run `./bin/rails requestjs:install`
-    - Run `./bin/rails tailwindcss:install`
+- Run `./bin/bundle install`
+- Run `./bin/rails requestjs:install`
+- Run `./bin/rails tailwindcss:install`
+
   
 ### 3. Confifure payfast credentials: 
     Edit config/initializers/payfast.yml to set the credentials applicable to your Payfast account
