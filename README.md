@@ -1,6 +1,6 @@
 # TicketFast
 
-This demo application demonstrates how to the [payfast_za]() gem in a Rails application using the PayFast Ruby library.
+This demo application demonstrates how to the [payfast_za](https://github.com/muchaya/payfast_za) gem in a Rails application using the PayFast Ruby library.
 
 ## Prerequisites
 
@@ -19,9 +19,13 @@ Follow these steps to set up and run the demo application:
     cd ticketfast/
 
 ### 2. Install dependencies: 
-    bundle add tailwindcss-rails
-    bundle
-    rails tailwindcss:install
+    - Add the `requestjs-rails` gem to your Gemfile: `gem 'requestjs-rails'`
+    - Add the `tailwindcss` gem to your Gemfile: `gem 'tailwindcss-rails'`
+
+    - Run `./bin/bundle install`
+
+    - Run `./bin/rails requestjs:install`
+    - Run `./bin/rails tailwindcss:install`
   
 ### 3. Confifure payfast credentials: 
     Edit config/initializers/payfast.yml to set the credentials applicable to your Payfast account
