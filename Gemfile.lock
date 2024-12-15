@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/muchaya/payfast_za.git
-  revision: ae6a4ee4375b79fc39e5783866ea2ff6492328bb
+  revision: 3433ebd5c95ad433a227c23f754d5691a4be2c7d
   specs:
-    payfast_za (0.0.0)
+    payfast_za (0.0.1)
 
 GEM
   remote: https://rubygems.org/
